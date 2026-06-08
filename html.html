@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Website Organisasi</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#0f172a;
+    color:white;
+    overflow-x:hidden;
+}
+
+/* Background Animasi */
+.bg-animation{
+    position:fixed;
+    width:100%;
+    height:100%;
+    top:0;
+    left:0;
+    z-index:-1;
+    background:linear-gradient(-45deg,#0f172a,#1e293b,#0ea5e9,#0f172a);
+    background-size:400% 400%;
+    animation:bgMove 15s ease infinite;
+}
+
+@keyframes bgMove{
+    0%{background-position:0% 50%;}
+    50%{background-position:100% 50%;}
+    100%{background-position:0% 50%;}
+}
+
+/* Navbar */
+nav{
+    position:fixed;
+    top:0;
+    width:100%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:20px 10%;
+    background:rgba(15,23,42,0.8);
+    backdrop-filter:blur(10px);
+    z-index:1000;
+}
+
+.logo{
+    font-size:1.5rem;
+    font-weight:700;
+    color:#38bdf8;
+}
+
+nav ul{
+    display:flex;
+    gap:30px;
+    list-style:none;
+}
+
+nav a{
+    text-decoration:none;
+    color:white;
+    transition:.3s;
+}
+
+nav a:hover{
+    color:#38bdf8;
+}
+
+/* Hero */
+.hero{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    text-align:center;
+    padding:20px;
+}
+
+.hero h1{
+    font-size:4rem;
+    margin-bottom:15px;
+}
+
+.hero span{
+    color:#38bdf8;
+}
+
+.hero p{
+    max-width:700px;
+    opacity:0.8;
+}
+
+.btn{
+    margin-top:30px;
+    padding:15px 35px;
+    background:#38bdf8;
+    color:white;
+    border:none;
+    border-radius:50px;
+    text-decoration:none;
+    transition:.3s;
+}
+
+.btn:hover{
+    transform:translateY(-5px);
+    box-shadow:0 0 25px #38bdf8;
+}
+
+/* Section */
+section{
+    padding:100px 10%;
+}
+
+.title{
+    text-align:center;
+    margin-bottom:50px;
+    font-size:2.5rem;
+}
+
+/* Filosofi */
+.filosofi{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:40px;
+    align-items:center;
+}
+
+.logo-box{
+    display:flex;
+    justify-content:center;
+}
+
+.logo-circle{
+    width:250px;
+    height:250px;
+    border-radius:50%;
+    background:linear-gradient(45deg,#38bdf8,#0ea5e9);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:5rem;
+    animation:float 4s ease-in-out infinite;
+}
+
+@keyframes float{
+    50%{
+        transform:translateY(-20px);
+    }
+}
+
+/* Anggota */
+.member-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:25px;
+}
+
+.card{
+    background:rgba(255,255,255,0.05);
+    border:1px solid rgba(255,255,255,0.1);
+    padding:30px;
+    border-radius:20px;
+    text-align:center;
+    transition:.4s;
+}
+
+.card:hover{
+    transform:translateY(-10px);
+    box-shadow:0 0 20px rgba(56,189,248,0.5);
+}
+
+.avatar{
+    width:100px;
+    height:100px;
+    border-radius:50%;
+    background:#38bdf8;
+    margin:auto;
+    margin-bottom:15px;
+}
+
+/* Statistik */
+.stats{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+    gap:20px;
+}
+
+.stat-box{
+    background:rgba(255,255,255,0.05);
+    padding:40px;
+    border-radius:20px;
+    text-align:center;
+}
+
+.number{
+    font-size:3rem;
+    color:#38bdf8;
+    font-weight:bold;
+}
+
+/* Footer */
+footer{
+    text-align:center;
+    padding:30px;
+    background:rgba(255,255,255,0.05);
+}
+
+/* Animasi Scroll */
+.hidden{
+    opacity:0;
+    transform:translateY(60px);
+    transition:all 1s;
+}
+
+.show{
+    opacity:1;
+    transform:translateY(0);
+}
+
+/* Responsive */
+@media(max-width:768px){
+
+.hero h1{
+    font-size:2.5rem;
+}
+
+.filosofi{
+    grid-template-columns:1fr;
+}
+
+nav{
+    flex-direction:column;
+    gap:10px;
+}
+}
+</style>
+</head>
+<body>
+
+<div class="bg-animation"></div>
+<nav>
+    <div class="logo">ORGANISASI X</div>
+
+    <ul>
+        <li><a href="#home">Beranda</a></li>
+        <li><a href="#filosofi">Filosofi</a></li>
+        <li><a href="#anggota">Anggota</a></li>
+        <li><a href="#statistik">Prestasi</a></li>
+    </ul>
+</nav>
+
+<section class="hero" id="home">
+    <h1>Selamat Datang di <span id="typing"></span></h1>
+    <p>
+        Organisasi yang bergerak untuk menciptakan generasi yang aktif,
+        kreatif, inovatif, dan berintegritas tinggi.
+    </p>
+
+    <a href="#anggota" class="btn">Lihat Anggota</a>
+</section>
+
+<section id="filosofi" class="hidden">
+    <h2 class="title">Filosofi Logo</h2>
+
+    <div class="filosofi">
+        <div class="logo-box">
+            <div class="logo-circle">★</div>
+        </div>
+
+        <div>
+            <h3>Makna Logo Organisasi</h3>
+            <br>
+            <p>
+                Bintang melambangkan cita-cita tinggi dan semangat untuk
+                terus berkembang. Warna biru melambangkan profesionalisme,
+                kepercayaan, serta loyalitas anggota terhadap organisasi.
+                Lingkaran melambangkan persatuan dan kekompakan.
+            </p>
+        </div>
+    </div>
+</section>
+
+<section id="anggota" class="hidden">
+    <h2 class="title">Struktur Organisasi</h2>
+
+    <div class="member-grid">
+
+        <div class="card">
+            <div class="avatar"></div>
+            <h3>Ketua</h3>
+            <p>Nama Ketua</p>
+        </div>
+
+        <div class="card">
+            <div class="avatar"></div>
+            <h3>Wakil Ketua</h3>
+            <p>Nama Wakil</p>
+        </div>
+
+        <div class="card">
+            <div class="avatar"></div>
+            <h3>Sekretaris</h3>
+            <p>Nama Sekretaris</p>
+        </div>
+
+        <div class="card">
+            <div class="avatar"></div>
+            <h3>Bendahara</h3>
+            <p>Nama Bendahara</p>
+        </div>
+
+    </div>
+</section>
+
+<section id="statistik" class="hidden">
+    <h2 class="title">Pencapaian Organisasi</h2>
+
+    <div class="stats">
+
+        <div class="stat-box">
+            <div class="number" data-target="250">0</div>
+            <p>Anggota</p>
+        </div>
+
+        <div class="stat-box">
+            <div class="number" data-target="75">0</div>
+            <p>Kegiatan</p>
+        </div>
+
+        <div class="stat-box">
+            <div class="number" data-target="30">0</div>
+            <p>Prestasi</p>
+        </div>
+
+        <div class="stat-box">
+            <div class="number" data-target="12">0</div>
+            <p>Tahun Berdiri</p>
+        </div>
+
+    </div>
+</section>
+
+<footer>
+    © 2026 Organisasi X | Berkarya, Menginspirasi, Mengabdi
+</footer>
+
+<script>
+
+// Efek Typing
+const text = "ORGANISASI X";
+let i = 0;
+
+function typing(){
+    if(i < text.length){
+        document.getElementById("typing").innerHTML += text.charAt(i);
+        i++;
+        setTimeout(typing,150);
+    }
+}
+typing();
+
+// Scroll Animation
+const observer = new IntersectionObserver(entries=>{
+    entries.forEach(entry=>{
+        if(entry.isIntersecting){
+            entry.target.classList.add("show");
+        }
+    });
+});
+
+document.querySelectorAll(".hidden").forEach(el=>{
+    observer.observe(el);
+});
+
+// Counter Animation
+const counters = document.querySelectorAll(".number");
+
+const counterObserver = new IntersectionObserver(entries=>{
+    entries.forEach(entry=>{
+        if(entry.isIntersecting){
+
+            const counter = entry.target;
+            const target = +counter.dataset.target;
+
+            let count = 0;
+
+            const update = ()=>{
+                const increment = target/100;
+
+                if(count < target){
+                    count += increment;
+                    counter.innerText = Math.floor(count);
+                    requestAnimationFrame(update);
+                }else{
+                    counter.innerText = target;
+                }
+            }
+
+            update();
+        }
+    });
+});
+
+counters.forEach(counter=>{
+    counterObserver.observe(counter);
+});
+
+</script>
+
+</body>
+</html>
